@@ -5,25 +5,10 @@ require: rubocop-rspec
 
 AllCops:
   Exclude:
-    - "bin/bundle"
-    - "bin/cucumber"
-    - "bin/qgsocksify"
-    - "bin/rails"
-    - "bin/rake"
-    - "bin/rspec"
-    - "bin/rubocop"
-    - "bin/setup"
-    - "bin/spring"
-    - "bin/update"
-    - "bin/yarn"
-    - "db/old_migrations/*"
-    - "db/schema.rb"
-    - "features/*"
-    - "node_modules/**/*"
-    - "vendor/**/*"
-  TargetRubyVersion: 2.4
+    - "bin/console"
+  TargetRubyVersion: 2.6
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 100
 
 Metrics/MethodLength:
@@ -41,13 +26,13 @@ Layout/MultilineOperationIndentation:
 Layout/FirstMethodArgumentLineBreak:
   Enabled: true
 
-Layout/AlignParameters:
+Layout/ParameterAlignment:
   EnforcedStyle: with_fixed_indentation
 
-Layout/AlignArguments:
+Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
 
-Layout/AlignHash:
+Layout/HashAlignment:
   Enabled: false
 
 Style/Documentation:
@@ -56,15 +41,11 @@ Style/Documentation:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-Layout/IndentFirstArgument:
+Layout/FirstArgumentIndentation:
   EnforcedStyle: consistent
 
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
-
-Style/LambdaCall:
-  Exclude:
-    - '**/*.jbuilder'
 
 Layout/DotPosition:
   EnforcedStyle: leading
@@ -111,11 +92,6 @@ Style/TrailingCommaInArrayLiteral:
     - consistent_comma
     - no_comma
 
-Style/Attr:
-  Exclude:
-    - app/graphql/**/*.rb
-    - db/schema.rb
-
 Metrics/BlockLength:
   Enabled: false
 
@@ -133,108 +109,7 @@ Naming/MemoizedInstanceVariableName:
     - optional
 
 Metrics/ClassLength:
-  Exclude:
-    - app/models/payment.rb
-    - app/models/brand_payment.rb
-    - app/models/subscription_item.rb
-    - app/models/pitch.rb
-    - app/models/frilans_finans_payments_file.rb
-    - app/models/product.rb
-    - app/models/outcome.rb
-    - app/models/brand_xlsx_invoice.rb
-    - app/models/ambassador.rb
-    - app/models/offer_order.rb
-    - app/models/blueprint.rb
-    - app/models/payment_reward.rb
-    - app/models/venue_invoice.rb
-    - app/models/order.rb
-    - app/models/offer.rb
-    - app/models/venue.rb
-    - app/models/subscription.rb
-    - app/models/course.rb
-    - app/models/checkin.rb
-    - app/presenters/customer_invoice_presenter.rb
-    - app/presenters/venue_invoice_presenter.rb
-    - app/graphql/paginate_field.rb
-    - app/controllers/app/v1/academy/products_controller.rb
-    - app/controllers/app/v3/pipeline_results_controller.rb
-    - app/controllers/app/v3/venues_controller.rb
-    - app/controllers/apply_controller.rb
-    - app/controllers/slack_controller.rb
-    - app/services/create_fortnox_invoice.rb
-    - app/services/mandrill/venue_invoice_to_mandrill_attributes.rb
-    - app/services/mandrill/offer_order_to_mandrill_attributes.rb
-    - app/services/import_venue.rb
-    - app/services/create_customer_invoice.rb
-    - app/services/form_builder/send_to_zapier.rb
-    - app/services/form_builder/send_mandrill_email.rb
-    - app/models/external/slack_bot.rb
-    - app/models/pdf_generators/driver.rb
-    - app/models/pdf_generators/templates/invoice/venue_invoice_base.rb
-    - lib/generators/graphql_mutation/graphql_mutation_generator.rb
-    - app/graphql/mutation_type.rb
-    - app/graphql/query_type.rb
-    - spec/support/graphql_matchers/**/*.rb
-
-Metrics/CyclomaticComplexity:
-  Exclude:
-    - app/models/subscription_item.rb
-    - app/models/venue.rb
-    - app/models/concerns/reward.rb
-    - app/presenters/pitch_presenter.rb
-    - app/serializers/app/v3/large/activities_serializer.rb
-    - app/graphql/resolvers/create_comment_resolver.rb
-    - app/controllers/app/v2/me_controller.rb
-    - app/controllers/slack_controller.rb
-    - app/services/import_venue.rb
-    - app/services/save_forwarded_lead_assignment.rb
-    - app/services/save_pitch.rb
-    - app/models/routers/login.rb
-    - app/models/keys_from_params.rb
-    - app/models/external/slack_bot.rb
-    - spec/support/utils/keen_helper.rb
-
-Metrics/ParameterLists:
-  Exclude:
-    - app/mailers/purchases_mailer.rb
-    - app/models/geocoder.rb
-    - app/jobs/create_zendesk_ticket_job.rb
-    - app/helpers/application_helper.rb
-    - app/services/create_scheduled_event.rb
-    - spec/requests/app/v3/survey_results_spec.rb
-    - spec/requests/app/v3/pipeline_results_spec.rb
-    - app/models/stripe_payment.rb
-    - app/models/pdf_generators/components/heading_value_list.rb
-    - app/models/pdf_generators/components/key_value_list.rb
-
-Metrics/PerceivedComplexity:
-  Exclude:
-    - app/models/concerns/reward.rb
-    - app/presenters/pitch_presenter.rb
-    - app/graphql/resolvers/create_comment_resolver.rb
-    - app/controllers/app/v2/me_controller.rb
-    - app/services/import_venue.rb
-    - app/services/save_forwarded_lead_assignment.rb
-    - app/services/save_pitch.rb
-    - app/models/routers/login.rb
-    - app/models/keys_from_params.rb
-    - spec/support/utils/keen_helper.rb
-
-Naming/UncommunicativeMethodParamName:
-  Exclude:
-    - app/mailers/brand_specialist_notifications.rb
-    - app/utils/date_params.rb
-    - app/models/device.rb
-    - app/graphql/resolvers/notifications.rb
-    - app/graphql/resolvers/products.rb
-    - app/graphql/resolvers/ambassador_tasks.rb
-    - app/controllers/concerns/null_serializer_attributes_remover.rb
-    - app/helpers/admin/admin_helper.rb
-    - app/helpers/application_helper.rb
-    - app/services/search_duplicate_venue.rb
-    - app/models/venue_search/query_executor.rb
-    - app/models/feature_flags/version.rb
-    - app/models/pdf_generators/components/list.rb
+  Enabled: false
 
 Naming/RescuedExceptionsVariableName:
   PreferredName: exception
@@ -245,10 +120,6 @@ Lint/InheritException:
 Style/GuardClause:
   Enabled: false
 
-Capybara/FeatureMethods:
-  Exclude:
-    - 'spec/models/feature_flags/rules_spec.rb' # False positive
-
 RSpec/ContextWording:
   Prefixes:
     - when
@@ -257,17 +128,8 @@ RSpec/ContextWording:
     - as
     - and
 
-RSpec/DescribeClass:
-  Exclude:
-    - 'spec/requests/**/*_spec.rb'
-    - 'spec/lib/**/integration/**/*_spec.rb'
-
 RSpec/DescribedClass:
   EnforcedStyle: explicit
-
-RSpec/EmptyExampleGroup:
-  Exclude:
-    - 'spec/models/feature_flags/rules_spec.rb' # False positive
 
 RSpec/ExampleLength:
   Enabled: false
@@ -277,3 +139,60 @@ RSpec/ImplicitSubject:
 
 RSpec/PredicateMatcher:
   Enabled: false
+
+RSpec/EmptyLineAfterExample:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: false
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Style/RedundantSelf:
+  Enabled: true
+
+RSpec/RepeatedExampleGroupDescription:
+  Enabled: true
+
+RSpec/RepeatedExampleGroupBody:
+  Enabled: true
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Style/ExponentialNotation:
+  Enabled: true
+
+Style/DisableCopsWithinSourceCodeDirective:
+  Enabled: false
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Style/SlicingWithRange:
+  Enabled: true
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+
+Lint/MixedRegexpCaptureTypes:
+  Enabled: true
+
+Style/RedundantRegexpCharacterClass:
+  Enabled: true
+
+Style/RedundantRegexpEscape:
+  Enabled: true

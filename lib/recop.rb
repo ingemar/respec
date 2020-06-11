@@ -14,7 +14,7 @@ module Recop
 
       puts "\nBooting... 🚓"
 
-      system "bundle exec rubocop #{bandits.join(' ')}"
+      system 'bundle exec rubocop ' + (ARGV + bandits).join(' ')
     else
       puts 'Huh? There was nothing todo.'
     end
