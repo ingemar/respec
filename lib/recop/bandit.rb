@@ -30,7 +30,7 @@ module Recop
     end
 
     def dir?
-      path.to_s =~ %r{\/\z}
+      path.to_s =~ %r{/\z}
     end
 
     def rubyfile?
