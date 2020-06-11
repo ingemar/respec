@@ -5,6 +5,7 @@ module Recop
     POLICED_DISTRICTS = %w[
       app
       config/initializers
+      db/migrate
       lib
       spec
     ].freeze
