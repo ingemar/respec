@@ -11,7 +11,7 @@ module Respec
         puts "  #{path}"
       end
 
-      puts "\nBooting... ♻️"
+      puts "\nBooting... 🚀"
 
       system "bundle exec rspec #{specs.join(' ')}"
     else
