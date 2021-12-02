@@ -24,7 +24,7 @@ module Respec
   private
 
   def self.specs
-    Git.status.map(&:spec_to_run).compact.uniq
+    Git.status.filter_map(&:spec_to_run).uniq
   end
   private_class_method :specs
 end

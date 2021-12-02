@@ -25,9 +25,9 @@ module Recop
   private
 
   def self.bandits
-    Respec::Git.status.map do |file|
+    Respec::Git.status.flat_map do |file|
       Recop::Bandit.find(file.path) if file.specable?
-    end.compact.uniq
+    end.uniq
   end
   private_class_method :bandits
 end
